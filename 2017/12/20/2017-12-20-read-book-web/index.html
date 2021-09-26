@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="zh-CN"><head><!-- hexo injector head_begin start --><link href="https://cdn.jsdelivr.net/npm/hexo-tag-common@latest/css/index.css" rel="stylesheet"/><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="多弗朗明哥"><meta name="copyright" content="多弗朗明哥"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>高性能网站建设指南 | 唐吉诃德的小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.25/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" href="https://cdn.darknights.cn/assets/images/favicon.ico"><link rel="mask-icon" href="https://cdn.darknights.cn/assets/images/favicon.ico" color="#0078E7"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"sdongzhi.com","root":"/","title":"唐吉诃德的小站","version":"1.6.2","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://el-bot-api.vercel.app/api/words/young"},"algolia":{"appID":"ZH3RNMJ8TX","apiKey":"d3c4e9cb3d4b25b901414d257a20d970","indexName":"Pages","hits":{"per_page":8}},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="唐吉诃德的小站" type="application/atom+xml"><link rel="stylesheet" href="/styles/custom.css"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=UA-107257239-1"></script><script>if (CONFIG.hostname === location.hostname) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-107257239-1');
+}</script><script data-ad-client="ca-pub-2245427233262012" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9KWR9L');</script><!-- End Google Tag Manager --><meta name="description" content="高性能网站建设指南-前端工程师技能精髓减少HTTP请求性能黄金法则提示了只有10%~20%响应时间花在了HTML文档上其他都用在了加载各种组件包括（图片，样式表，脚本，falsh）进行的HTTP请求上。因此改善响应时间的最简单途径就是减少组件数量，并由此减少请求数量 可以以下通过方式  CSS Sprites   内联图片 data:URL   合并脚本和样式表  data:URL模式首次在199">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高性能网站建设指南">
+<meta property="og:url" content="https://sdongzhi.com/2017/12/20/2017-12-20-read-book-web/index.html">
+<meta property="og:site_name" content="唐吉诃德的小站">
+<meta property="og:description" content="高性能网站建设指南-前端工程师技能精髓减少HTTP请求性能黄金法则提示了只有10%~20%响应时间花在了HTML文档上其他都用在了加载各种组件包括（图片，样式表，脚本，falsh）进行的HTTP请求上。因此改善响应时间的最简单途径就是减少组件数量，并由此减少请求数量 可以以下通过方式  CSS Sprites   内联图片 data:URL   合并脚本和样式表  data:URL模式首次在199">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-12-20T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-26T07:37:46.389Z">
+<meta property="article:author" content="多弗朗明哥">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="读书总结">
+<meta name="twitter:card" content="summary"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="多弗朗明哥"><img width="96" loading="lazy" src="/images/avatar.jpeg" alt="多弗朗明哥"><span class="site-author-status" title="Looking for dawn.">🌑</span></a><div class="site-author-name"><a href="/about/">多弗朗明哥</a></div><a class="site-name" href="/about/site.html">唐吉诃德的小站</a><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">54</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">19</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">36</span></a></div><a class="site-state-item hty-icon-button" href="/about/#comment" title="留言板"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-clipboard-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/IORI20091101" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/iori20091101" title="Twitter" target="_blank" style="color:#1da1f2"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-twitter-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://t.me/donduffy" title="Telegram Channel" target="_blank" style="color:#0088CC"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-telegram-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:sdzzlyjy@gmail.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://travellings.link" title="Travelling" target="_blank" style="color:var(--hty-text-color)"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-train-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE%E6%8C%87%E5%8D%97-%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%8A%80%E8%83%BD%E7%B2%BE%E9%AB%93"><span class="toc-number">1.</span> <span class="toc-text">高性能网站建设指南-前端工程师技能精髓</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%8F%E5%B0%91HTTP%E8%AF%B7%E6%B1%82"><span class="toc-number">1.1.</span> <span class="toc-text">减少HTTP请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%86%85%E5%AE%B9%E5%8F%91%E5%B8%83%E7%BD%91%E7%BB%9CCDN"><span class="toc-number">1.2.</span> <span class="toc-text">使用内容发布网络CDN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0Expires%E5%A4%B4"><span class="toc-number">1.3.</span> <span class="toc-text">添加Expires头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%A0%B7%E5%BC%8F%E8%A1%A8%E6%94%BE%E5%9C%A8%E9%A1%B6%E9%83%A8"><span class="toc-number">1.4.</span> <span class="toc-text">将样式表放在顶部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E8%84%9A%E6%9C%AC%E6%94%BE%E5%88%B0%E5%BA%95%E9%83%A8"><span class="toc-number">1.5.</span> <span class="toc-text">将脚本放到底部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%BF%E5%85%8DCSS%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.6.</span> <span class="toc-text">避免CSS表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E7%9A%84Javascript%E5%92%8CCSS"><span class="toc-number">1.7.</span> <span class="toc-text">使用外部的Javascript和CSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%8F%E5%B0%91DNS%E6%9F%A5%E6%89%BE"><span class="toc-number">1.8.</span> <span class="toc-text">减少DNS查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%BE%E7%AE%80Javascript"><span class="toc-number">1.9.</span> <span class="toc-text">精简Javascript</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%BF%E5%85%8D%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-number">1.10.</span> <span class="toc-text">避免重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E8%84%9A%E6%9C%AC"><span class="toc-number">1.11.</span> <span class="toc-text">删除重复脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%88%96%E5%88%A0%E9%99%A4ETag"><span class="toc-number">1.12.</span> <span class="toc-text">配置或删除ETag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BFAjax%E5%8F%AF%E7%BC%93%E5%AD%98"><span class="toc-number">1.13.</span> <span class="toc-text">使Ajax可缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%90%E6%9E%84%E7%BD%91%E7%AB%99%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="toc-number">1.14.</span> <span class="toc-text">析构网站的工具</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://sdongzhi.com/2017/12/20/2017-12-20-read-book-web/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="多弗朗明哥"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="唐吉诃德的小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">高性能网站建设指南<a class="post-edit-link" href="https://github.com/YunYouJun/yunyoujun.github.io/tree/hexo/source/_posts/2017-12-20-read-book-web.md" target="_blank" title="编辑" rel="noopener"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-edit-line"></use></svg></a></h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2017-12-20 00:00:00" itemprop="dateCreated datePublished" datetime="2017-12-20T00:00:00+00:00">2017-12-20</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="修改时间：2021-09-26 07:37:46" itemprop="dateModified" datetime="2021-09-26T07:37:46+00:00">2021-09-26</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="本文字数">1.9k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="阅读时长">6m</span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">读书总结</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/javascript/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">javascript</span></a><a class="tag-item" href="/tags/%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">读书总结</span></a></span></div><div class="post-author"><span class="author-name">toshiba</span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><h1 id="高性能网站建设指南-前端工程师技能精髓"><a href="#高性能网站建设指南-前端工程师技能精髓" class="headerlink" title="高性能网站建设指南-前端工程师技能精髓"></a>高性能网站建设指南-前端工程师技能精髓</h1><h2 id="减少HTTP请求"><a href="#减少HTTP请求" class="headerlink" title="减少HTTP请求"></a>减少HTTP请求</h2><p><code>性能黄金法则</code>提示了只有10%~20%响应时间花在了HTML文档上其他都用在了加载各种组件包括（图片，样式表，脚本，falsh）进行的HTTP请求上。因此改善响应时间的最简单途径就是减少组件数量，并由此减少请求数量</p>
+<p>可以以下通过方式</p>
+<blockquote>
+<p>CSS Sprites</p>
+</blockquote>
+<blockquote>
+<p>内联图片 data:URL</p>
+</blockquote>
+<blockquote>
+<p>合并脚本和样式表</p>
+</blockquote>
+<p>data:URL模式首次在1995年被提议其格式如下 :<code>data:mediatype;base64,data</code><br>其他类似的模式还有<br> ftp:，file:， mailto:， smtp:， pop:， dns:， whois:， finger:， daytime:，news: ， run:<br>需要注意的是内联图片不被IE支持，而且增加了文档的大小如果存在于HTML当中首次下载的文档大小会变大，鉴于此可以将内联图片放到css当中这样可以让图片可以被缓存而且这样减少了一个图片的http请求。</p>
+<h2 id="使用内容发布网络CDN"><a href="#使用内容发布网络CDN" class="headerlink" title="使用内容发布网络CDN"></a>使用内容发布网络CDN</h2><p>合理使用cdn会很大程度增加网站响应速度而且价格不贵，比如本站使用的又拍云（非广告），即使被DDOS了也花不了多少</p>
+<h2 id="添加Expires头"><a href="#添加Expires头" class="headerlink" title="添加Expires头"></a>添加Expires头</h2><p>通过设置一个长久有效的Expires头可以使web组件被缓存。web服务器通过Expires头来告诉Web客户端它可以使用一个组件的当前副本直到制定的时间为止。<br>但是由于Expires是一个特定时间，它要求服务器跟客户端始终严格同步（通常很难保证），所以需要跟Cache-Control: max-age=31500000 配合使用该项配置告诉客户端该组件过多长时间才会失效而不是到某一个时间失效。<br>如果两者同时出现max-age指令会覆盖Expires头。<br>比较幸运的是mod_expires Apache模块能够使用Expires头时能像max-age那样以相对的方式设置日期。使用Expire-Default指令来完成。设置如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;FilesMatch &quot;\.(gif|jpg|js|css)$&quot;&gt;</span><br><span class="line">    ExpiresDefault &quot;access plus 10 years&quot;</span><br><span class="line">&lt;/FileMatch&gt;</span><br><span class="line">//该指令会同时向响应中发送Expires头和Cache-Contral max-age,响应格式如下：</span><br><span class="line">Expires: Wed, 16 Oct 2024 05:43:02 GMT</span><br><span class="line">Cache-control: max-age=315360000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>通过设置Expires头可以避免额外的http请求，减少一半的响应时间。</p>
+<p>##压缩组件<br>使用gzip来压缩组件，从HTTP1.1开始Web客户端可以通过HTTP请求中的: Accept-Enconding: gzip,deflate  来表示对于压缩的支持，如果Web服务器看到请求中有这个头就会使用客户端列出来的方法中的一种来压缩响应。Web服务器通过响应中的Content-Encoding头来通知客户端 : Content-Encoding: gzip.</p>
+<blockquote>
+<p>gzip是目前最流行和最有效的压缩方法， 另外一种deflate的方式效果略逊且不流行，因此gzip使最理想的压缩方式</p>
+</blockquote>
+<p>配置gzip使用的模块取决于Apache的版本</p>
+<ul>
+<li>Apache1.3使用mod_gzip</li>
+<li>Apache2.x使用mod_deflate</li>
+</ul>
+<p>目前的状况是浏览器与服务器直接连接并没有任何问题，但是如果中间有代理服务器的话有两种情况<br>情况一：Web客户端不支持gzip发送到代理服务器，代理服务器向服务器请求得到未压缩的组件，然后组件被代理服务器缓存，此后对该组件的所有请求都走缓存，组件失去了压缩的机会，即使以后的客户端支持gzip也没用了<br>情况二：如何顺序相反缓存的则是gzip压缩后的组件，这样一个不支持gzip的Web浏览器无法正常解压导致组件可能失效。<br>无论哪种情况都不是我们希望见到的，解决这个问题的方式是在Web服务器的响应中添加Vary头。Web服务器可以告诉代理根据一个或多个请求头来改变缓存响应，由于压缩决定基于Accept-Encoding请求头的，因此需要在服务器的Vary响应中包含Accept-Encoding.  如 Vary: Accept-Encoding<br>这使得代理会缓存两个版本的内容如果有设置Accept-Encoding: gzip,deflate的返回压缩版本，没有设置的返回未压缩版本。<br>还可以把在Apache设置支持和不支持gzip白名单将User-Agent加入Vary如 <code>Vary: Accept-Encoding,User-Agent</code></p>
+<h2 id="将样式表放在顶部"><a href="#将样式表放在顶部" class="headerlink" title="将样式表放在顶部"></a>将样式表放在顶部</h2><p>最好的实践是将Css放到head标签中防止FOUC（Flash Of Unstyled Content）。</p>
+<blockquote>
+<p>和A不一样，[LINK]只能出现在文档的HEAD中，但出现的次数时任意的</p>
+</blockquote>
+<p>CSS放到底部会在IE导致白屏</p>
+<blockquote>
+<ul>
+<li>在新窗口打开时</li>
+<li>重新加载时</li>
+<li>作为主页时</li>
+</ul>
+</blockquote>
+<h2 id="将脚本放到底部"><a href="#将脚本放到底部" class="headerlink" title="将脚本放到底部"></a>将脚本放到底部</h2><blockquote>
+<ul>
+<li>脚本会阻塞后面组件的下载</li>
+<li>脚本会阻塞后面内容的呈现</li>
+</ul>
+</blockquote>
+<p>所以最佳的位置就是放到页面body最底部</p>
+<h2 id="避免CSS表达式"><a href="#避免CSS表达式" class="headerlink" title="避免CSS表达式"></a>避免CSS表达式</h2><p>css表达式使用不当会导致频繁的求值导致地下的性能</p>
+<blockquote>
+<p>可以明确的一点是不了解底层影响的情况下使用css表达式是非常危险的，所以尽量避免使用CSS表达式。</p>
+</blockquote>
+<h2 id="使用外部的Javascript和CSS"><a href="#使用外部的Javascript和CSS" class="headerlink" title="使用外部的Javascript和CSS"></a>使用外部的Javascript和CSS</h2><p>组件的引入不外乎内联和外置。就纯粹而已内联要快一些但是我们还是会使用外置的css和脚本，这是因为外置的组件是会被缓存的导致以后的请求会从浏览器缓存读渲染会更快，而内联的脚本会导致html体积增大但是HTML是不会缓存的这样每次请求的html体积都会很大，造成额外的带宽消耗。</p>
+<ul>
+<li>加载后下载脚本可以在第一次加载内联的组件然后异步加载外部组件以便为下次加载提供便利这里使用的html是不一样的需要注意。</li>
+<li>动态内联，使用cookie来让后台决定返回那个页面。</li>
+</ul>
+<h2 id="减少DNS查找"><a href="#减少DNS查找" class="headerlink" title="减少DNS查找"></a>减少DNS查找</h2><p>根据HTTP1.1规范，建议浏览器从每个主机名并行下载两个组件，如果一个web页面平均的将组件放到两个主机名下整体响应时间会减少一半。<br>Yahoo研究表明使用两个主机名比使用1，4，10个主机名能带来更好的性能。因此建议将组件分别放到至少两个但是不超过四个与主机名下，这样不会造成过多的DNS查找，又可以为并行下载。</p>
+<h2 id="精简Javascript"><a href="#精简Javascript" class="headerlink" title="精简Javascript"></a>精简Javascript</h2><p>可以使用gulp等工具对脚本和css进行混淆，精简和压缩，服务端开启gzip，以减少文件的体积大小。</p>
+<h2 id="避免重定向"><a href="#避免重定向" class="headerlink" title="避免重定向"></a>避免重定向</h2><p>比如为了使用<a target="_blank" rel="noopener" href="http://www.xxx.com/">www.xxx.com</a> 重定向到 <a target="_blank" rel="noopener" href="http://www.xxx.com/">www.xxx.com/</a> 这种是不推荐的，我们只需要使用服务端配置，无需重定向就能拥有如此简洁的url即可</p>
+<blockquote>
+<p>寻找一种避免重定向的方法</p>
+</blockquote>
+<h2 id="删除重复脚本"><a href="#删除重复脚本" class="headerlink" title="删除重复脚本"></a>删除重复脚本</h2><blockquote>
+<p>确保脚本只被包含一次</p>
+</blockquote>
+<p>可以添加文件MD5后缀或者时间戳来保证文件是不同的</p>
+<h2 id="配置或删除ETag"><a href="#配置或删除ETag" class="headerlink" title="配置或删除ETag"></a>配置或删除ETag</h2><p>ETag，一般建议移除ETag</p>
+<blockquote>
+<p>比较最新修改日期 Last-Modified<br>比较实体标签 ETag</p>
+</blockquote>
+<h2 id="使Ajax可缓存"><a href="#使Ajax可缓存" class="headerlink" title="使Ajax可缓存"></a>使Ajax可缓存</h2><p>真实情况ajax一般不缓存<br>缓存可以缓存的ajax请求，通过修改cache-control</p>
+<h2 id="析构网站的工具"><a href="#析构网站的工具" class="headerlink" title="析构网站的工具"></a>析构网站的工具</h2><p>YSlow</p>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>toshiba</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://sdongzhi.com/2017/12/20/2017-12-20-read-book-web/" title="高性能网站建设指南">https://sdongzhi.com/2017/12/20/2017-12-20-read-book-web/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2018/03/15/2018-03-15-vim-config/" rel="prev" title="vim快捷键和配置"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">vim快捷键和配置</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2017/11/20/2017-11-20-js-generator/" rel="next" title="Generator函数的含义和用法"><span class="post-nav-text">Generator函数的含义和用法</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>若您想及时得到回复提醒，建议跳转 GitHub Issues 评论。</span><br></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 多弗朗明哥</span></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script><script defer src="https://cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script><script defer src="/js/search/algolia-search.js"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"></div><div class="algolia-results"><div id="algolia-stats"></div><div id="algolia-hits"></div><div class="algolia-pagination" id="algolia-pagination"></div></div></div></div><!-- hexo injector body_end start --><script src="https://cdn.jsdelivr.net/npm/hexo-tag-common@latest/js/index.js"></script><!-- hexo injector body_end end --></body></html>
