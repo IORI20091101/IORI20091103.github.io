@@ -12,6 +12,8 @@ tags :
     - Gatsby
 categories:
     - Gatsby
+
+sticky: 10
 ---
 
 # Gatsby
