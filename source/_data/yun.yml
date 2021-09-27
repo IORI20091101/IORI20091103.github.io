@@ -36,7 +36,7 @@ github_discussions:
   enable: false
 
 disqus:
-  enable: false
+  enable: true
   shortname: IORI
   apikey: ouoGQCaamOKdJgyZU5DKcpFnRIg3SNzvk0nwygPtlcTRJuE68c8igvrZGW4wAJoN
 
