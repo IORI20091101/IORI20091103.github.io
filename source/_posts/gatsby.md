@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Gatsby入门
+title:      Gatsby入门test
 subtitle:   Gatsby入门以及简单的博客搭建
 date:       2021-01-22
 author:     "toshiba"
